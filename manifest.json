@@ -1,0 +1,17 @@
+{
+  "name": "Weather & Outfit Suggester",
+  "short_name": "OutfitApp",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#1e3c72",
+  "description": "Get your daily weather forecast and outfit recommendations automatically.",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

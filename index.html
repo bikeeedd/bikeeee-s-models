@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather & Outfit Suggester</title>
+    <!-- Modern Sans-serif Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons for UI Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PWA Mobile Install Metadata -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon.svg">
+    <meta name="theme-color" content="#1e3c72">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+
+<body>
+    <div class="app-container" id="app-container">
+        <!-- Dynamic Background Gradient -->
+        <div class="bg-gradient" id="bg-gradient"></div>
+
+        <main class="glass-panel">
+            <header>
+                <form id="search-form" class="search-bar">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" id="location-input" placeholder="Enter city name..." autocomplete="off">
+                    <button type="submit" id="search-btn">Search</button>
+                </form>
+                <button id="location-btn" class="icon-btn" title="Use my location">
+                    <i class="ph ph-navigation-arrow"></i>
+                </button>
+            </header>
+
+            <!-- Loading Indicator -->
+            <div id="loading" class="loading-spinner" style="display: none;">
+                <div class="spinner"></div>
+            </div>
+
+            <!-- Error Message -->
+            <div id="error-message" class="error-msg" style="display: none;">
+                Location not found. Please try again.
+            </div>
+
+            <!-- Weather Details -->
+            <section class="weather-section" id="weather-display" style="display: none;">
+                <div class="weather-header">
+                    <h2 id="city-name">--</h2>
+                    <p id="weather-description">--</p>
+                </div>
+                <div class="weather-main">
+                    <i class="ph ph-cloud-sun weather-icon" id="main-weather-icon"></i>
+                    <h1 id="temperature">--°</h1>
+                </div>
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <i class="ph ph-wind"></i>
+                        <span id="wind-speed">-- km/h</span> <!-- Added Wind Speed Info -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recommended Outfit -->
+            <section class="outfit-section" id="outfit-display" style="display: none;">
+                <h3>Today's Outfit</h3>
+                <div class="outfit-container">
+                    <div class="outfit-items" id="outfit-items">
+                        <!-- Outfit items will be inserted here by JS -->
+                    </div>
+                    <p class="outfit-message" id="outfit-message">--</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- Register the PWA Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').then((registration) => {
+                    console.log('App Installed Successfully via ServiceWorker: ', registration.scope);
+                }).catch((error) => {
+                    console.log('ServiceWorker registration failed: ', error);
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

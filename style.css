@@ -1,0 +1,317 @@
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --input-bg: rgba(0, 0, 0, 0.25);
+    --btn-bg: rgba(255, 255, 255, 0.2);
+    --btn-hover: rgba(255, 255, 255, 0.35);
+    
+    /* Default theme gradient before weather finishes loading */
+    --theme-gradient: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #0f172a; 
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.bg-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--theme-gradient);
+    z-index: -1;
+    transition: background 1.5s ease-in-out;
+}
+
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+    padding: 40px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Header & Search Bar */
+header {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.search-bar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: var(--input-bg);
+    border-radius: 12px;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.search-bar:focus-within {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.search-bar i {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+}
+
+.search-bar input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    padding: 10px 12px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-bar input::placeholder {
+    color: var(--text-secondary);
+}
+
+#search-btn {
+    background: var(--btn-bg);
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#search-btn:hover {
+    background: var(--btn-hover);
+    transform: translateY(-2px);
+}
+
+.icon-btn {
+    background: var(--btn-bg);
+    color: white;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.icon-btn:hover {
+    background: var(--btn-hover);
+    transform: scale(1.05);
+}
+
+/* Weather Info Section */
+.weather-section {
+    text-align: center;
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+.weather-header h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.weather-header p {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.weather-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 35px 0;
+}
+
+.weather-icon {
+    font-size: 7rem;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 25px rgba(255,255,255,0.4));
+}
+
+#temperature {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.weather-details {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Outfit Recommendation Section */
+.outfit-section {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid var(--glass-border);
+    animation: slideUp 0.8s ease-out forwards;
+}
+
+.outfit-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.outfit-container {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 25px 20px;
+}
+
+.outfit-items {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.outfit-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 95px;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.outfit-card:hover {
+    transform: translateY(-8px);
+    background: var(--btn-hover);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.outfit-card i {
+    font-size: 2.2rem;
+    color: #fff;
+}
+
+.outfit-card span {
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.outfit-message {
+    text-align: center;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* Loading & Error Indicators */
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid var(--glass-border);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s infinite linear;
+}
+
+.error-msg {
+    text-align: center;
+    color: #fff;
+    background: rgba(255, 50, 50, 0.6);
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+/* Keyframe Animations */
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+    .glass-panel {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+    
+    #temperature { font-size: 4rem; }
+    
+    .outfit-card { width: 85px; padding: 12px; }
+}

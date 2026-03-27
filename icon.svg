@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <!-- Rich mobile app icon background -->
+    <rect width="512" height="512" rx="100" fill="#1e3c72"/>
+    <!-- Sun vector graphic -->
+    <circle cx="256" cy="200" r="80" fill="#facc15" />
+    <path d="M 256 60 L 256 100 M 256 300 L 256 340 M 116 200 L 156 200 M 356 200 L 396 200 M 157 101 L 185 129 M 327 271 L 355 299 M 355 101 L 327 129 M 185 271 L 157 299" stroke="#facc15" stroke-width="20" stroke-linecap="round"/>
+    <!-- Clothing/Coat Hanger vector graphic representing 'Outfit' below the sun -->
+    <path d="M 256 320 C 230 320 220 300 256 280 C 290 300 280 320 256 320 Z M 150 420 L 256 320 L 362 420 L 340 430 L 256 350 L 172 430 Z" fill="#ffffff"/>
+</svg>
